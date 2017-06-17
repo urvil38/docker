@@ -2,10 +2,13 @@
 const os = require('os');
 const express = require('express');
 const uuid = require('uuid');
+const logger = require('morgan');
 
 let app = express();
 
 const hostname = os.hostname();
+
+app.use(logger('dev'));
 
 app.get('/guid',(req,res)=> {
     res.json({
