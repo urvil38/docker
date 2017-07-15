@@ -5,9 +5,13 @@ services:
        build: app
        ports:
         - "9000"
+       volumes:
+        - "./app/server:/code"
     proxy:
        build: proxy
        ports:
          - "80:80"
+       volumes: 
+         - "./proxy:/etc/nginx/conf.d/"  
 
 
